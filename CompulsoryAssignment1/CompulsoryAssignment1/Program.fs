@@ -33,7 +33,7 @@ let rec insert weaklyACList listItem =
 
 
 // Part 3: Intersect
-let intersect (firstList, secondList) = List.filter (fun elm -> List.contains elm firstList) secondList
+let intersect (firstList, secondList) = List.filter (fun element -> List.contains element firstList) secondList
 //F# Interactive window:
 // val intersect : firstList:'a list * secondList:'a list -> 'a list when 'a : equality
 //intersect([1;2;3;4;4;5],[2;3;4;4]);;
