@@ -34,8 +34,13 @@ let rec insert weaklyACList listItem =
 //  count[1;1;1;1;2;3;3] 1;;
 //  Expected outcome is , val it : int list = [1;1;1;1;1;2;3;3]
 
+
 // Part 3: Intersect
 let intersect (firstList, secondList) = List.filter (fun elm -> List.contains elm firstList) secondList
+//F# Interactive window:
+// val intersect : firstList:'a list * secondList:'a list when 'a : equality
+//intersect([1;2;3;4;4;5],[2;3;4;4]);;
+//val it : int list = [2; 3; 4; 4]
 
 
 // Part 4: Plus
