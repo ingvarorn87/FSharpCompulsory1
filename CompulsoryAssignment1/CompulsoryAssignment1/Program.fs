@@ -28,3 +28,7 @@ let rec insert weaklyACList listItem =
     | _ -> failwith "Incomplete match on %A"
 
 
+// Part 3: Intersect
+let intersect (list1, list2) = List.filter (fun elm -> List.contains elm list1) list2
+
+
