@@ -29,7 +29,10 @@ let rec insert weaklyACList listItem =
     | x :: xs when listItem <= x -> listItem :: [ x ] @ xs
     | x :: xs when listItem > x -> x :: (insert xs listItem)
     | _ -> failwith "Incomplete match on %A"
-
+//F# Interactive window:
+//  val insert : weaklyACList:'a list -> listItem:'a -> int when 'a : comparison
+//  count[1;1;1;1;2;3;3] 1;;
+//  Expected outcome is , val it : int list = [1;1;1;1;1;2;3;3]
 
 // Part 3: Intersect
 let intersect (firstList, secondList) = List.filter (fun elm -> List.contains elm firstList) secondList
