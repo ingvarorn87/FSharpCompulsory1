@@ -15,7 +15,10 @@ let rec count weaklyACList listItem =
         (if x = listItem then 1
          else 0)
         + count xs listItem
-
+//F# Interactive window:
+//  val count : weaklyACList:'a list -> listItem:'a -> int when 'a : equality
+//  count[1;1;1;1;2;3;3] 1;;
+//  Expected outcome is , val it : int = 4
 
 // Part 2: Insert
 let rec insert weaklyACList listItem =
