@@ -50,6 +50,11 @@ let plus (firstList, secondList) =
         | [] -> resultlist
         | x :: xs -> insert resultlist x |> plus' xs
     plus' secondList firstList
+//F# Interactive window:
+// val plus : firstList:'a list * secondList:'a list -> 'a list when 'a : comparison
+//plus ([1;1;2;2;3;3], [1;2;3]);;
+//val it : int list = [1; 1; 1; 2; 2; 2; 3; 3; 3]
+
 
 // Part 5: Minus
 let minus (minuendList, subtrahendList) =
