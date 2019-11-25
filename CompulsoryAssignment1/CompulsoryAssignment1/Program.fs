@@ -71,3 +71,8 @@ let minus (firstList, secondList) =
         | x :: xs -> removeTheList xs (removeTheItem finalResultList x [])
 
     removeTheList firstList secondList
+
+    //F# Interactive window:
+    //val minus : firstList:'a list * secondList:'a list -> 'a list when 'a : equality
+    //minus([1;1;1;2;2:3;3], [1;1;1;2;3]);;
+    //val it : int list = [2; 3]
