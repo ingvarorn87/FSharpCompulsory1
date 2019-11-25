@@ -29,6 +29,29 @@ let rec insert weaklyACList listItem =
 
 
 // Part 3: Intersect
-let intersect (list1, list2) = List.filter (fun elm -> List.contains elm list1) list2
+let intersect (firstList, secondList) = List.filter (fun elm -> List.contains elm firstList) secondList
 
 
+// Part 4: Plus
+let plus (firstList, secondList) =
+    let rec plus' list resultlist =
+        match list with
+        | [] -> resultlist
+        | x :: xs -> insert resultlist x |> plus' xs
+    plus' secondList firstList
+
+// Part 5: Minus
+let minus (minuendList, subtrahendList) =
+    let rec removeItem list itemToRemove resultList =
+        match list with
+        | [] -> resultList
+        | x :: [] when x = itemToRemove -> resultList
+        | x :: xs when x = itemToRemove -> resultList @ xs
+        | x :: xs -> resultList @ [ x ] @ removeItem xs itemToRemove resultList
+
+    let rec removeList listToRemove resultlist =
+        match listToRemove with
+        | [] -> resultlist
+        | x :: xs -> removeList xs (removeItem resultlist x [])
+
+    removeList subtrahendList minuendList
