@@ -8,12 +8,9 @@ open System.Linq
 let rec count weaklyACList listItem =
     match weaklyACList with
     | [] -> 0
-    | x :: [] ->
-        if x = listItem then 1
-        else 0
+    | x :: [] -> if x = listItem then 1 else 0
     | x :: xs ->
-        (if x = listItem then 1
-         else 0)
+        (if x = listItem then 1 else 0)
         + count xs listItem
 //F# Interactive window:
 //  val count : weaklyACList:'a list -> listItem:'a -> int when 'a : equality
@@ -28,7 +25,7 @@ let rec insert weaklyACList listItem =
     | x :: [] when listItem > x -> [ x ] @ [ listItem ]
     | x :: xs when listItem <= x -> listItem :: [ x ] @ xs
     | x :: xs when listItem > x -> x :: (insert xs listItem)
-    | _ -> failwith "Incomplete match on %A"
+    | _ -> failwith "Incomplete comparison on %A"
 //F# Interactive window:
 //  val insert : weaklyACList:'a list -> listItem:'a -> 'a list when 'a : comparison
 //  insert[1;1;1;1;2;3;3] 1;;
@@ -45,8 +42,7 @@ let intersect (firstList, secondList) = List.filter (fun elm -> List.contains el
 
 // Part 4: Plus
 let plus (firstList, secondList) =
-    let rec plus' list resultlist =
-        match list with
+    let rec plus' list resultlist = match list with
         | [] -> resultlist
         | x :: xs -> insert resultlist x |> plus' xs
     plus' secondList firstList
