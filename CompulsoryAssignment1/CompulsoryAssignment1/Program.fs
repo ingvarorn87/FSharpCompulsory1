@@ -57,17 +57,17 @@ let plus (firstList, secondList) =
 
 
 // Part 5: Minus
-let minus (minuendList, subtrahendList) =
-    let rec removeItem list itemToRemove resultList =
+let minus (firstList, secondList) =
+    let rec removeTheItem list itemToRemove finalResultList =
         match list with
-        | [] -> resultList
-        | x :: [] when x = itemToRemove -> resultList
-        | x :: xs when x = itemToRemove -> resultList @ xs
-        | x :: xs -> resultList @ [ x ] @ removeItem xs itemToRemove resultList
+        | [] -> finalResultList
+        | x :: [] when x = itemToRemove -> finalResultList
+        | x :: xs when x = itemToRemove -> finalResultList @ xs
+        | x :: xs -> finalResultList @ [ x ] @ removeTheItem xs itemToRemove finalResultList
 
-    let rec removeList listToRemove resultlist =
-        match listToRemove with
-        | [] -> resultlist
-        | x :: xs -> removeList xs (removeItem resultlist x [])
+    let rec removeTheList listToRemoveFrom finalResultList =
+        match listToRemoveFrom with
+        | [] -> finalResultList
+        | x :: xs -> removeTheList xs (removeTheItem finalResultList x [])
 
-    removeList subtrahendList minuendList
+    removeTheList firstList secondList
